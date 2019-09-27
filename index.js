@@ -1,5 +1,5 @@
 const cheerio = require('cheerio');
-const got = require('got');
+const rp = require('request-promise');
 
 const uri = 'http://www.yifysubtitles.com/movie-imdb';
 const downloadUri = 'http://yifysubtitles.com';
@@ -9,8 +9,8 @@ const langmap = require('./langmap.json');
 const scrape = (imdbid) => {
     imdbid = 'tt' + imdbid.toString().replace('tt', '');
 
-    return got(`${uri}/${imdbid}`)
-        .then(res => cheerio.load(res.body))
+    return rp(`${uri}/${imdbid}`)
+        .then(res => cheerio.load(res))
         .then($ => {
             return $('tbody tr').map((i, el) => {
                 const $el = $(el);
@@ -32,7 +32,7 @@ const scrape = (imdbid) => {
 const rearrange = (subs = {}) => {
     let subtitles = {};
 
-    subs = subs.sort((a,b) => b.score - a.score);
+    subs = subs.sort((a, b) => b.score - a.score);
 
     // rearrange by language
     for (let i in subs) {
@@ -44,8 +44,10 @@ const rearrange = (subs = {}) => {
     return Promise.resolve(subtitles);
 };
 
-const YifySubtitles = module.exports = {
+const YifySubtitles = {
     search: (opts) => {
         return scrape(opts.imdbid).then(rearrange);
     }
 };
+
+module.exports = YifySubtitles;

@@ -1,17 +1,18 @@
 {
-    "name": "yifysubtitles-api",
+    "name": "yifysubs-api",
     "version": "1.0.0",
     "description": "Yifysubtitles.com API wrapper for NodeJS",
     "main": "index.js",
-    "author": "vankasteelj",
+    "author": "isaacherrera47",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/vankasteelj/yifysubtitles-api.git"
+        "url": "https://github.com/isaacherrera47/yifysubtitles-api.git"
     },
     "dependencies": {
-        "got": "^9.5.0",
-        "cheerio": "^0.22.0"
+        "cheerio": "^0.22.0",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.4"
     },
     "scripts": {
         "test": "node ./test.js"

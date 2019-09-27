@@ -1,10 +1,10 @@
-# yifysubtitles-api
+# yifysubs-api
 **[YifySubtitles.com](http://www.yifysubtitles.com) API wrapper for download subtitles, written in NodeJS.**
 
 ### Search a subtitle
 
 ```js
-require('yifysubtitles-api').search({imdbid:'tt0120915',limit:'best'}).then(console.log)
+require('yifysubs-api').search({imdbid:'tt0120915'}).then(console.log)
 ```
 
 Example output:
@@ -21,6 +21,7 @@ Object {
     }]
 }
 ```
+A FORK FROM THE ORIGINAL yifysubtitles-api by     "author": "vankasteelj".
 
 *Note: `hi` represents 'hearing impaired' subtitles.*
 

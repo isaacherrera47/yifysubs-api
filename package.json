@@ -7,7 +7,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/isaacherrera47/yifysubtitles-api.git"
+        "url": "https://github.com/isaacherrera47/yifysubs-api.git"
     },
     "dependencies": {
         "cheerio": "^0.22.0",
